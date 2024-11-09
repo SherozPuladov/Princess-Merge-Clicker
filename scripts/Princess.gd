@@ -1,10 +1,17 @@
 class_name Princess
 extends CharacterBody2D
 
+
+
+signal princess_level_increased(p: Princess)
+
+
+
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var dragging_area: DraggingArea = $DraggingArea
 @onready var collision_of_dragging_area: CollisionShape2D = $DraggingArea/CollisionShape2D
+
 
 
 var level: int = 1:
@@ -30,6 +37,7 @@ func check_overlapping_princesses() -> void:
 			if body.princess.level == level:
 				level += 1
 				body.princess.kill_self()
+				emit_signal("princess_level_increased", self)
 				return
 			
 

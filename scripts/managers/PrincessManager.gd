@@ -3,6 +3,7 @@ extends Node
 
 signal princess_spawned(princess: Princess)
 signal not_enough_crystals_to_buy_princess(missing_crystals: int)
+signal princess_level_increased(princess: Princess)
 
 
 
@@ -119,8 +120,15 @@ func _initialize_princess(p: Princess, p_level: int):
 		princess.level = p_level
 		# Добавляем инстанс принцессы как дочерний объект к узлу Princesses
 		princesses.add_child(p)
-		
+		# Коннектим сигнал что бы ретранслировать его
+		princess.connect("princess_level_increased", _retranslate_princess_level_increased_signal)
 		# Устанавливаем позицию принцессы на случайную позицию
-		p.position = _next_random_spawnpoint
+		princess.position = _next_random_spawnpoint
 	else:
 		print("Не удалось создать инстанс принцессы")
+
+
+func _retranslate_princess_level_increased_signal(princess: Princess):
+	emit_signal("princess_level_increased", princess)
+	print("princess_level_increased")
+	print(princesses.get_child_count())
