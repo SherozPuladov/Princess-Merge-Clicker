@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyy5e7g4cfsxm"]
+[gd_scene load_steps=13 format=3 uid="uid://cyy5e7g4cfsxm"]
 
+[ext_resource type="Script" path="res://scripts/audio/background_audio.gd" id="1_obfha"]
 [ext_resource type="Texture2D" uid="uid://de13xhl07opcs" path="res://assets/sprites/DanceFloor.jpg" id="1_yqfxt"]
 [ext_resource type="Script" path="res://scripts/SpawnPoints.gd" id="4_rfc04"]
 [ext_resource type="Script" path="res://ui/scripts/BuyPrincessPanel.gd" id="5_84kjq"]
@@ -20,6 +21,7 @@ height = 1560.0
 [node name="Sounds" type="Node" parent="."]
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="Sounds"]
+script = ExtResource("1_obfha")
 
 [node name="MergeAudio" type="AudioStreamPlayer" parent="Sounds"]
 

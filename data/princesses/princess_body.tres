@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="PrincessBody" load_steps=2 format=3 uid="uid://sfb60ovu2hev"]
+
+[ext_resource type="Script" path="res://data/template/princess_body.gd" id="1_smbe1"]
+
+[resource]
+script = ExtResource("1_smbe1")
