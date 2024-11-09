@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjjuxrme4mvgf"]
+
+[ext_resource type="Script" path="res://scripts/Princess.gd" id="1_ipcgm"]
+[ext_resource type="Texture2D" uid="uid://b34o0spcbpixw" path="res://assets/sprites/Princess_1.png" id="2_x0r27"]
+[ext_resource type="Script" path="res://scripts/DraggingArea.gd" id="3_0dpkn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1uasw"]
+radius = 43.5
+height = 347.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wlp7o"]
+radius = 92.5
+height = 435.0
+
+[sub_resource type="Animation" id="Animation_sfvg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_bvhbu"]
+resource_name = "click"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.45, 0.55), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ahs2"]
+_data = {
+"RESET": SubResource("Animation_sfvg3"),
+"click": SubResource("Animation_bvhbu")
+}
+
+[node name="Princess" type="CharacterBody2D" groups=["Character"]]
+collision_layer = 2
+script = ExtResource("1_ipcgm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x0r27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 41.5)
+shape = SubResource("CapsuleShape2D_1uasw")
+
+[node name="DraggingArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_0dpkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingArea"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("CapsuleShape2D_wlp7o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ahs2")
+}

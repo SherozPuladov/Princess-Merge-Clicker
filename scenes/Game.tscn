@@ -1,0 +1,223 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyy5e7g4cfsxm"]
+
+[ext_resource type="Texture2D" uid="uid://de13xhl07opcs" path="res://assets/sprites/DanceFloor.jpg" id="1_yqfxt"]
+[ext_resource type="Script" path="res://scripts/SpawnPoints.gd" id="4_rfc04"]
+[ext_resource type="Script" path="res://ui/scripts/BuyPrincessPanel.gd" id="5_84kjq"]
+[ext_resource type="Script" path="res://ui/scripts/CloseBuyPrincessPanelButton.gd" id="5_mr1k8"]
+[ext_resource type="PackedScene" uid="uid://dr44pg7mir5t7" path="res://scenes/objects/SpawnButton.tscn" id="7_vsy6d"]
+[ext_resource type="Texture2D" uid="uid://diemyhldcda36" path="res://icon.webp" id="8_1bgad"]
+[ext_resource type="Script" path="res://scripts/AutoSpawn.gd" id="8_xr7lj"]
+[ext_resource type="Script" path="res://ui/scripts/buy_princess/OpenBuyPrincessPanelButton.gd" id="9_t1uxm"]
+[ext_resource type="Script" path="res://ui/scripts/CrystalsCountLabel.gd" id="9_y6frf"]
+[ext_resource type="Script" path="res://ui/scripts/AutoSpawnProgressBar.gd" id="10_vowpc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v5qta"]
+radius = 51.0
+height = 1560.0
+
+[node name="Game" type="Node2D"]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="MergeAudio" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="CatchAudio" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="SpawnAudio" type="AudioStreamPlayer" parent="Sounds"]
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(0.000181847, -3.28767e-05)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_yqfxt")
+
+[node name="Princesses" type="Node2D" parent="." groups=["Princesses"]]
+top_level = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(-2, 490)
+script = ExtResource("4_rfc04")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-317, -38)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(285, -44)
+
+[node name="AutoSpawn" type="Timer" parent="." groups=["AutoSpawn"]]
+wait_time = 12.0
+autostart = true
+script = ExtResource("8_xr7lj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameVersionLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -99.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Version: 0.13"
+
+[node name="CrystalsCountLabel" type="Label" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 30.0
+offset_bottom = 53.0
+grow_horizontal = 0
+text = "Cystals Count: "
+script = ExtResource("9_y6frf")
+
+[node name="CloseBuyPrincessPanelButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_mr1k8")
+
+[node name="OpenBuyPrincessPanelButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 500.0
+grow_vertical = 0
+texture_normal = ExtResource("8_1bgad")
+ignore_texture_size = true
+stretch_mode = 1
+script = ExtResource("9_t1uxm")
+
+[node name="BuyPrincessPanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("5_84kjq")
+
+[node name="Label" type="Label" parent="CanvasLayer/BuyPrincessPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "Buy Princess"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/BuyPrincessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -440.0
+offset_right = 250.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SpawnButton" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+
+[node name="SpawnButton2" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 2
+
+[node name="SpawnButton3" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 3
+
+[node name="SpawnButton4" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 4
+
+[node name="SpawnButton5" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 5
+
+[node name="SpawnButton6" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 6
+
+[node name="SpawnButton7" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 7
+
+[node name="SpawnButton8" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 8
+
+[node name="SpawnButton9" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 9
+
+[node name="SpawnButton10" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 10
+
+[node name="AutoSpawnProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -250.0
+offset_right = 70.0
+offset_bottom = 250.0
+grow_vertical = 2
+step = 0.01
+value = 30.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("8_1bgad")
+script = ExtResource("10_vowpc")
+
+[node name="Dance Floor" type="Node2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Dance Floor"]
+visible = false
+polygon = PackedVector2Array(-547, 539, 554, 540, 554, 590, -547, 576, -990, 539, -989, -357, 990, -357, 989.512, 80.7364, 989, 540, 554, 590, 554, 540, 714, 438, 767, 323, 767, 25, 721, -3, 475, -152, 204, -208, -2, -221, -255, -201, -495, -141, -690, -25, -746, 8, -746, 360, -653, 475)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dance Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
+position = Vector2(-789, 162)
+shape = SubResource("CapsuleShape2D_v5qta")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
+position = Vector2(778, 159)
+shape = SubResource("CapsuleShape2D_v5qta")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
+position = Vector2(0, 594)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_v5qta")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
+position = Vector2(0, -444)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_v5qta")
+
+[connection signal="timeout" from="AutoSpawn" to="AutoSpawn" method="_timeout"]
