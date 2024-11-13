@@ -25,6 +25,7 @@ const SETTINGS_VK_PLAY_GAME_ID_KEY = "vk_play_game_id"
 const SETTINGS_Y8_GAME_ID_KEY = "y8_game_id"
 const SETTINGS_LAGGED_DEV_ID_KEY = "lagged_dev_id"
 const SETTINGS_LAGGED_PUBLISHER_ID_KEY = "lagged_publisher_id"
+const SETTINGS_FACEBOOK_PLACEMENT_ID_KEY = "facebook_placement_id"
 const SETTINGS_ADSGRAM_BLOCK_ID_KEY = "adsgram_block_id"
 
 var _path = null
@@ -53,6 +54,7 @@ func _export_end():
 	var y8_game_id = ""
 	var lagged_dev_id = ""
 	var lagged_publisher_id = ""
+	var facebook_placement_id = ""
 	var adsgram_block_id = ""
 	
 	if ProjectSettings.has_setting(SETTINGS_PATH + SETTINGS_GAME_DISTRIBUTION_GAME_ID_KEY):
@@ -69,6 +71,9 @@ func _export_end():
 
 	if ProjectSettings.has_setting(SETTINGS_PATH + SETTINGS_LAGGED_PUBLISHER_ID_KEY):
 		lagged_publisher_id = ProjectSettings.get(SETTINGS_PATH + SETTINGS_LAGGED_PUBLISHER_ID_KEY)
+
+	if ProjectSettings.has_setting(SETTINGS_PATH + SETTINGS_FACEBOOK_PLACEMENT_ID_KEY):
+		facebook_placement_id = ProjectSettings.get(SETTINGS_PATH + SETTINGS_FACEBOOK_PLACEMENT_ID_KEY)
 	
 	if ProjectSettings.has_setting(SETTINGS_PATH + SETTINGS_ADSGRAM_BLOCK_ID_KEY):
 		adsgram_block_id = ProjectSettings.get(SETTINGS_PATH + SETTINGS_ADSGRAM_BLOCK_ID_KEY)
@@ -83,6 +88,7 @@ func _export_end():
 	content = content.format({"y8_game_id":y8_game_id})
 	content = content.format({"lagged_dev_id":lagged_dev_id})
 	content = content.format({"lagged_publisher_id":lagged_publisher_id})
+	content = content.format({"facebook_placement_id":facebook_placement_id})
 	content = content.format({"adsgram_block_id":adsgram_block_id})
 	
 	index.store_string(content)

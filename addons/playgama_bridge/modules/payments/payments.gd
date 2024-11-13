@@ -14,10 +14,21 @@
 # along with Playgama Bridge. If not, see <https://www.gnu.org/licenses/>.
 
 var is_supported : get = _is_supported_getter
-
+var is_get_catalog_supported : get = _is_get_catalog_supported_getter
+var is_get_purchases_supported : get = _is_get_purchases_supported_getter
+var is_consume_purchase_supported : get = _is_consume_purchase_supported_getter
 
 func _is_supported_getter():
 	return _js_payments.isSupported
+
+func _is_get_catalog_supported_getter():
+	return _js_payments.isGetCatalogSupported
+
+func _is_get_purchases_supported_getter():
+	return _js_payments.isGetPurchasesSupported
+	
+func _is_consume_purchase_supported_getter():
+	return _js_payments.isConsumePurchaseSupported
 
 
 var _js_payments = null

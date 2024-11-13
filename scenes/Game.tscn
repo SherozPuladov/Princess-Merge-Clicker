@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyy5e7g4cfsxm"]
+[gd_scene load_steps=18 format=3 uid="uid://cyy5e7g4cfsxm"]
 
 [ext_resource type="Script" path="res://scripts/audio/background_audio.gd" id="1_obfha"]
 [ext_resource type="Texture2D" uid="uid://de13xhl07opcs" path="res://assets/sprites/DanceFloor.jpg" id="1_yqfxt"]
 [ext_resource type="Script" path="res://scripts/SpawnPoints.gd" id="4_rfc04"]
-[ext_resource type="Script" path="res://ui/scripts/labels/last_princess_position_label.gd" id="5_57tw2"]
 [ext_resource type="Script" path="res://ui/scripts/BuyPrincessPanel.gd" id="5_84kjq"]
 [ext_resource type="Script" path="res://ui/scripts/CloseBuyPrincessPanelButton.gd" id="5_mr1k8"]
 [ext_resource type="PackedScene" uid="uid://dr44pg7mir5t7" path="res://scenes/objects/SpawnButton.tscn" id="7_vsy6d"]
@@ -84,22 +83,6 @@ grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Version: 0.14.4"
-
-[node name="LastPrincessPositionLabel" type="Label" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -188.0
-offset_top = 54.0
-offset_right = -20.0
-offset_bottom = 88.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "(0, 0)"
-horizontal_alignment = 2
-script = ExtResource("5_57tw2")
 
 [node name="CrystalsCountLabel" type="Label" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
@@ -268,19 +251,23 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
 position = Vector2(-800, 0)
 shape = SubResource("CapsuleShape2D_v5qta")
+debug_color = Color(0, 0, 0, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
 position = Vector2(800, 0)
 shape = SubResource("CapsuleShape2D_v5qta")
+debug_color = Color(0, 0, 0, 0)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
 position = Vector2(0, 600)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_v5qta")
+debug_color = Color(0, 0, 0, 0)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Dance Floor/StaticBody2D"]
 position = Vector2(0, -400)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_v5qta")
+debug_color = Color(0, 0, 0, 0)
 
 [connection signal="timeout" from="AutoSpawn" to="AutoSpawn" method="_timeout"]
