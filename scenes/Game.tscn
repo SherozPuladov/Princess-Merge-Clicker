@@ -83,7 +83,7 @@ offset_bottom = 53.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Version: 0.14.3"
+text = "Version: 0.14.4"
 
 [node name="LastPrincessPositionLabel" type="Label" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
