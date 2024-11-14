@@ -1,19 +1,58 @@
-[gd_scene load_steps=18 format=3 uid="uid://cyy5e7g4cfsxm"]
+[gd_scene load_steps=27 format=3 uid="uid://cyy5e7g4cfsxm"]
 
+[ext_resource type="Script" path="res://scripts/managers/advertisement_manager.gd" id="1_3qny2"]
 [ext_resource type="Script" path="res://scripts/audio/background_audio.gd" id="1_obfha"]
 [ext_resource type="Texture2D" uid="uid://de13xhl07opcs" path="res://assets/sprites/DanceFloor.jpg" id="1_yqfxt"]
+[ext_resource type="Script" path="res://scripts/managers/debug_manager.gd" id="2_a3hqg"]
 [ext_resource type="Script" path="res://scripts/SpawnPoints.gd" id="4_rfc04"]
 [ext_resource type="Script" path="res://ui/scripts/BuyPrincessPanel.gd" id="5_84kjq"]
 [ext_resource type="Script" path="res://ui/scripts/CloseBuyPrincessPanelButton.gd" id="5_mr1k8"]
 [ext_resource type="PackedScene" uid="uid://dr44pg7mir5t7" path="res://scenes/objects/SpawnButton.tscn" id="7_vsy6d"]
-[ext_resource type="Texture2D" uid="uid://diemyhldcda36" path="res://icon.webp" id="8_1bgad"]
 [ext_resource type="Script" path="res://scripts/AutoSpawn.gd" id="8_xr7lj"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="9_6wilp"]
 [ext_resource type="Script" path="res://ui/scripts/buy_princess/OpenBuyPrincessPanelButton.gd" id="9_t1uxm"]
 [ext_resource type="Script" path="res://ui/scripts/CrystalsCountLabel.gd" id="9_y6frf"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="10_uku58"]
 [ext_resource type="Script" path="res://ui/scripts/AutoSpawnProgressBar.gd" id="10_vowpc"]
+[ext_resource type="FontFile" uid="uid://dg64xc28b1wgq" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="12_ho7uy"]
 [ext_resource type="Script" path="res://ui/scripts/player_name_label.gd" id="12_je5tj"]
+[ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="13_aiijj"]
 [ext_resource type="Script" path="res://ui/scripts/labels/platform_name_label.gd" id="13_m6457"]
 [ext_resource type="Script" path="res://ui/scripts/labels/princess_on_scene_label.gd" id="14_673ei"]
+
+[sub_resource type="Gradient" id="Gradient_2gw27"]
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_b7irm"]
+script = ExtResource("10_uku58")
+corner_rounding = 19.5
+
+[sub_resource type="Gradient" id="Gradient_60i4s"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_qohu7"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(500, 200)
+shape = SubResource("Resource_b7irm")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_2gw27")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_60i4s")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_u7u13"]
 offsets = PackedFloat32Array(0, 0.515152, 1)
@@ -27,6 +66,51 @@ radius = 51.0
 height = 1560.0
 
 [node name="Game" type="Node2D"]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Advertisement" type="Node" parent="Managers"]
+script = ExtResource("1_3qny2")
+
+[node name="InterstitialTimer" type="Timer" parent="Managers/Advertisement"]
+wait_time = 60.0
+
+[node name="Debug" type="Node" parent="Managers" groups=["DebugManager"]]
+script = ExtResource("2_a3hqg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Managers/Debug"]
+
+[node name="DebugLabel" type="Label" parent="Managers/Debug/CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Debug Label"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="GameVersionLabel" type="Label" parent="Managers/Debug/CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.0
+offset_top = 19.0
+offset_right = -20.0
+offset_bottom = 53.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Version: 0.14.4"
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -70,20 +154,6 @@ script = ExtResource("8_xr7lj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GameVersionLabel" type="Label" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -188.0
-offset_top = 19.0
-offset_right = -20.0
-offset_bottom = 53.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Version: 0.14.4"
-
 [node name="CrystalsCountLabel" type="Label" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
 offset_left = 12.0
@@ -111,10 +181,26 @@ anchor_bottom = 1.0
 offset_top = -200.0
 offset_right = 500.0
 grow_vertical = 0
-texture_normal = ExtResource("8_1bgad")
+texture_normal = SubResource("Texture2D_qohu7")
 ignore_texture_size = true
 stretch_mode = 1
 script = ExtResource("9_t1uxm")
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/OpenBuyPrincessPanelButton"]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("12_ho7uy")
+theme_override_font_sizes/font_size = 92
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_aiijj")
 
 [node name="BuyPrincessPanel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 11
