@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cyy5e7g4cfsxm"]
+[gd_scene load_steps=38 format=3 uid="uid://cyy5e7g4cfsxm"]
 
 [ext_resource type="Script" path="res://scripts/managers/advertisement_manager.gd" id="1_3qny2"]
 [ext_resource type="Script" path="res://scripts/audio/background_audio.gd" id="1_obfha"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="13_aiijj"]
 [ext_resource type="Script" path="res://ui/scripts/labels/platform_name_label.gd" id="13_m6457"]
 [ext_resource type="Script" path="res://ui/scripts/labels/princess_on_scene_label.gd" id="14_673ei"]
-[ext_resource type="Script" path="res://ui/scripts/player_photo.gd" id="20_642i7"]
 [ext_resource type="Script" path="res://ui/scripts/labels/max_princess_on_scene_label.gd" id="20_nfyv3"]
 
 [sub_resource type="Gradient" id="Gradient_2gw27"]
@@ -135,30 +134,6 @@ resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("9_6wilp")
 size = Vector2i(240, 90)
-shape = SubResource("Resource_ekypq")
-fill_type = 1
-fill_color = Color(1, 1, 1, 1)
-fill_gradient = SubResource("Gradient_4xd6j")
-fill_from = Vector2(0, 0)
-fill_to = Vector2(1, 0)
-fill_repeat = "pad"
-stroke_type = 1
-stroke_width = 5.0
-stroke_color = Color(0, 0, 0, 1)
-stroke_gradient = SubResource("Gradient_0g7si")
-stroke_from = Vector2(0, 0)
-stroke_to = Vector2(1, 0)
-stroke_repeat = "pad"
-stroke_joint = "round"
-offset = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-
-[sub_resource type="Texture2D" id="Texture2D_nvb3p"]
-resource_local_to_scene = false
-resource_name = ""
-script = ExtResource("9_6wilp")
-size = Vector2i(510, 90)
 shape = SubResource("Resource_ekypq")
 fill_type = 1
 fill_color = Color(1, 1, 1, 1)
@@ -441,6 +416,16 @@ texture_over = SubResource("Texture2D_nvdok")
 texture_progress = SubResource("Texture2D_flilg")
 script = ExtResource("10_vowpc")
 
+[node name="PlayerNameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 457.0
+offset_top = 190.0
+offset_right = 548.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Anonim"
+script = ExtResource("12_je5tj")
+
 [node name="PrincessOnScene" type="TextureRect" parent="CanvasLayer"]
 offset_left = 10.0
 offset_top = 10.0
@@ -505,37 +490,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_nfyv3")
 
-[node name="Profile" type="TextureRect" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 110.0
-offset_right = 518.0
-offset_bottom = 200.0
-texture = SubResource("Texture2D_nvb3p")
-
-[node name="PlayerNameLabel" type="Label" parent="CanvasLayer/Profile"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 94.0
-offset_top = -33.0
-offset_right = 496.0
-offset_bottom = 34.0
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
-theme_override_font_sizes/font_size = 48
-text = "Anonim"
-script = ExtResource("12_je5tj")
-
-[node name="PlayerPhoto" type="TextureRect" parent="CanvasLayer/Profile"]
-layout_mode = 0
-offset_left = 110.0
-offset_top = 110.0
-offset_right = 150.0
-offset_bottom = 150.0
-script = ExtResource("20_642i7")
-
 [node name="Crystals" type="TextureRect" parent="CanvasLayer"]
 offset_left = 260.0
 offset_top = 10.0
@@ -552,12 +506,12 @@ offset_bottom = 92.0
 localize_numeral_system = false
 theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
 theme_override_fonts/font = ExtResource("12_ho7uy")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 52
 text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("13_aiijj")
-icon_size = 48
+icon_size = 52
 icon_name = "gem"
 
 [node name="CrystalsCountLabel" type="Label" parent="CanvasLayer/Crystals"]
@@ -573,7 +527,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
 theme_override_font_sizes/font_size = 48
-text = "92384529384752903475927340972193847"
+text = "10223ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
