@@ -1,30 +1,170 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr44pg7mir5t7"]
+[gd_scene load_steps=17 format=3 uid="uid://dr44pg7mir5t7"]
 
-[ext_resource type="Texture2D" uid="uid://diemyhldcda36" path="res://icon.webp" id="1_r4d1l"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="1_mdbj0"]
 [ext_resource type="Script" path="res://ui/scripts/SpawnButton.gd" id="2_scijt"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_rectangle.gd" id="2_tk1f0"]
+[ext_resource type="Texture2D" uid="uid://b34o0spcbpixw" path="res://assets/sprites/Princess_1.png" id="4_6wxkj"]
+
+[sub_resource type="Gradient" id="Gradient_abhf0"]
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_elmil"]
+script = ExtResource("2_tk1f0")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_v5kit"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_dkdyo"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_mdbj0")
+size = Vector2i(630, 720)
+shape = SubResource("Resource_elmil")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_abhf0")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_v5kit")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_nrmm2"]
+offsets = PackedFloat32Array(0.758065, 1)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_1juaf"]
+script = ExtResource("2_tk1f0")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_c5tqo"]
+offsets = PackedFloat32Array(0.774194, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_dml7u"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_mdbj0")
+size = Vector2i(630, 720)
+shape = SubResource("Resource_1juaf")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_nrmm2")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_c5tqo")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_mds23"]
+offsets = PackedFloat32Array(0.521505, 1)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_mmdrs"]
+script = ExtResource("2_tk1f0")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_uhie1"]
+offsets = PackedFloat32Array(0.505376, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_iposl"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_mdbj0")
+size = Vector2i(630, 720)
+shape = SubResource("Resource_mmdrs")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_mds23")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_uhie1")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
 
 [node name="SpawnButton" type="TextureButton"]
-custom_minimum_size = Vector2(500, 200)
-offset_right = 500.0
-offset_bottom = 200.0
+custom_minimum_size = Vector2(630, 720)
+offset_right = 630.0
+offset_bottom = 720.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("1_r4d1l")
+texture_normal = SubResource("Texture2D_dkdyo")
+texture_pressed = SubResource("Texture2D_dml7u")
+texture_hover = SubResource("Texture2D_iposl")
 ignore_texture_size = true
 stretch_mode = 6
 script = ExtResource("2_scijt")
 
-[node name="Label" type="Label" parent="."]
+[node name="PrincessNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_font_sizes/font_size = 36
+text = "DEFAULT_PRINCESS_NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 4
+
+[node name="PrincessCostLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_font_sizes/font_size = 64
+text = "9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
-text = "NUM"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+
+[node name="PrincessTextureRect" type="TextureRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+texture = ExtResource("4_6wxkj")
+expand_mode = 1
+stretch_mode = 5

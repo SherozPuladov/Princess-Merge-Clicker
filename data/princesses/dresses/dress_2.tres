@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dress" load_steps=6 format=3 uid="uid://buqja5jncv5qf"]
+
+[ext_resource type="Texture2D" uid="uid://dl7c6btplmey4" path="res://assets/sprites/princess/pieces/dresses/2/dress_arm_left_2_result.png" id="1_6ufc5"]
+[ext_resource type="Texture2D" uid="uid://b0wo18ni0gdk6" path="res://assets/sprites/princess/pieces/dresses/2/dress_arm_right_2_result.png" id="2_xobkk"]
+[ext_resource type="Texture2D" uid="uid://dlpkh4mxcb0h1" path="res://assets/sprites/princess/pieces/dresses/2/dress_down_2_result.png" id="3_c6hhs"]
+[ext_resource type="Texture2D" uid="uid://dkuepocmf8whj" path="res://assets/sprites/princess/pieces/dresses/2/dress_up_2_result.png" id="4_hk1ue"]
+[ext_resource type="Script" path="res://data/princesses/template/dress.gd" id="5_kbkxw"]
+
+[resource]
+script = ExtResource("5_kbkxw")
+arm_left = ExtResource("1_6ufc5")
+arm_right = ExtResource("2_xobkk")
+up = ExtResource("4_hk1ue")
+down = ExtResource("3_c6hhs")

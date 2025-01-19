@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Body" load_steps=8 format=3 uid="uid://sfb60ovu2hev"]
+
+[ext_resource type="Texture2D" uid="uid://d4ibjwf7j0d7k" path="res://assets/sprites/princess/pieces/bodies/1/arm_left_1_result.png" id="1_5lkll"]
+[ext_resource type="Script" path="res://data/princesses/template/body.gd" id="1_smbe1"]
+[ext_resource type="Texture2D" uid="uid://de2wfm2de0noj" path="res://assets/sprites/princess/pieces/bodies/1/arm_right_1_result.png" id="2_2q3h7"]
+[ext_resource type="Texture2D" uid="uid://crhodu3c3wiq2" path="res://assets/sprites/princess/pieces/bodies/1/head_1_result.png" id="3_d4yon"]
+[ext_resource type="Texture2D" uid="uid://bjjxqcmc8faut" path="res://assets/sprites/princess/pieces/bodies/1/leg_left_1_result.png" id="4_k1u5u"]
+[ext_resource type="Texture2D" uid="uid://bw1714bch4rwc" path="res://assets/sprites/princess/pieces/bodies/1/leg_right_1_result.png" id="5_r30u6"]
+[ext_resource type="Texture2D" uid="uid://c3u4it2pp0bkn" path="res://assets/sprites/princess/pieces/bodies/1/up_1_result.png" id="7_j87t6"]
+
+[resource]
+script = ExtResource("1_smbe1")
+head = ExtResource("3_d4yon")
+arm_left = ExtResource("1_5lkll")
+arm_right = ExtResource("2_2q3h7")
+up = ExtResource("7_j87t6")
+leg_left = ExtResource("4_k1u5u")
+leg_right = ExtResource("5_r30u6")

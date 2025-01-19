@@ -1,50 +1,29 @@
 extends Node
 
 
+
 signal princess_spawned(princess: Princess)
 signal not_enough_crystals_to_buy_princess(missing_crystals: int)
 signal princess_level_increased(princess: Princess)
+signal princess_bought()
 
 
 
-const levels: Dictionary = {
-	1: preload("res://assets/sprites/Princess_1.png"),
-	2: preload("res://assets/sprites/Princess_2.png"),
-	3: preload("res://assets/sprites/Princess_3.png"),
-	4: preload("res://assets/sprites/Princess_4.png"),
-	5: preload("res://assets/sprites/Princess_5.png"),
-	6: preload("res://assets/sprites/Princess_6.png"),
-	7: preload("res://assets/sprites/Princess_7.png"),
-	8: preload("res://assets/sprites/Princess_8.png"),
-	9: preload("res://assets/sprites/Princess_9.png"),
-	10: preload("res://assets/sprites/Princess_10.png") 
-}
+const bodies: Bodies = preload('res://data/princesses/bodies.tres')
+const dresses: Dresses = preload('res://data/princesses/dresses.tres')
+const button_textures: PrincessButtonTextures = preload('res://data/princesses/button_textures.tres')
+const level_costs: PrincessLevelCosts = preload('res://data/princesses/level_costs.tres')
+const level_names: PrincessLevelNames = preload('res://data/princesses/level_name.tres')
+const level_crystals: PrincessLevelCrystals = preload('res://data/princesses/level_crystals.tres')
+const hairs: Hairs = preload('res://data/princesses/hairs.tres')
 
-const prices: Dictionary = {
-	1: 10,
-	2: 15,
-	3: 20,
-	4: 35,
-	5: 40,
-	6: 55,
-	7: 70,
-	8: 85,
-	9: 100,
-	10: 115
-}
+const princess_scene = preload("res://scenes/objects/Princess.tscn")
 
 const MAX_PRINCESSES_ON_SCENE = 32
-
 const MAX_PRINCESS_Z_INDEX = -1
 const MIN_PRINCESS_Z_INDEX = -4000
 
-
-
 @onready var princesses = get_tree().get_nodes_in_group("Princesses")[0]
-
-
-
-var princess_scene = preload("res://scenes/objects/Princess.tscn")
 
 var princesses_on_scene = 0
 
@@ -83,17 +62,18 @@ var selected_princess: Princess:
 
 
 func buy_princess(princess_level: int) -> void:
-	if prices[princess_level] <= CrystalManager.crystals:
-		CrystalManager.crystals -= prices[princess_level]
+	if level_costs.princess_level_costs[princess_level] <= CrystalManager.crystals:
+		CrystalManager.crystals -= level_costs.princess_level_costs[princess_level]
+		emit_signal("princess_bought")
 		_spawn_princess(princess_level)
 	else:
-		emit_signal("not_enough_crystals_to_buy_princess", prices[princess_level] - CrystalManager.crystals)
+		emit_signal("not_enough_crystals_to_buy_princess", level_costs.princess_level_costs[princess_level] - CrystalManager.crystals)
 		
 
 
 func _spawn_princess(princess_level: int) -> void:
 	if princesses == null:
-		print("Ошибка: узел Princesses не установлен")
+		push_error("Узел Princesses не установлен")
 		return
 	
 	# Проверка того достигло ли принцессы максимального лимита на сцену
@@ -130,5 +110,3 @@ func _initialize_princess(p: Princess, p_level: int):
 
 func _retranslate_princess_level_increased_signal(princess: Princess):
 	emit_signal("princess_level_increased", princess)
-	print("princess_level_increased")
-	print(princesses.get_child_count())

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dresses" load_steps=6 format=3 uid="uid://bnlllyvio6djy"]
+
+[ext_resource type="Resource" uid="uid://b0choiv4xj8d4" path="res://data/princesses/dresses/dress_1.tres" id="1_ivsx6"]
+[ext_resource type="Script" path="res://data/princesses/template/dress.gd" id="1_o06hw"]
+[ext_resource type="Script" path="res://data/princesses/template/dresses.gd" id="2_r45to"]
+[ext_resource type="Resource" uid="uid://buqja5jncv5qf" path="res://data/princesses/dresses/dress_2.tres" id="3_1cfo1"]
+[ext_resource type="Resource" uid="uid://buqtoueakt46p" path="res://data/princesses/dresses/dress_3.tres" id="4_gt6wl"]
+
+[resource]
+script = ExtResource("2_r45to")
+default_dress = ExtResource("1_ivsx6")
+dresses = Array[ExtResource("1_o06hw")]([ExtResource("1_ivsx6"), ExtResource("3_1cfo1"), ExtResource("4_gt6wl"), null, null, null, null, null, null, null])

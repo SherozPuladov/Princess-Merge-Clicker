@@ -2,4 +2,5 @@ extends TextureRect
 
 
 func _ready() -> void:
-	texture = Bridge.player.photo[1]
+	if Bridge.player:
+		texture = Bridge.player

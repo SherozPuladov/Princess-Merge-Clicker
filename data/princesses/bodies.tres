@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Bodies" load_steps=4 format=3 uid="uid://cuim8sk1tbsmx"]
+
+[ext_resource type="Script" path="res://data/princesses/template/body.gd" id="1_2xvoy"]
+[ext_resource type="Script" path="res://data/princesses/template/bodies.gd" id="2_pfds0"]
+[ext_resource type="Resource" uid="uid://sfb60ovu2hev" path="res://data/princesses/bodies/body_1.tres" id="2_wumqs"]
+
+[resource]
+script = ExtResource("2_pfds0")
+default_body = ExtResource("2_wumqs")
+bodies = Array[ExtResource("1_2xvoy")]([ExtResource("2_wumqs")])

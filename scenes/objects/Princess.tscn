@@ -1,8 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjjuxrme4mvgf"]
+[gd_scene load_steps=18 format=3 uid="uid://cjjuxrme4mvgf"]
 
 [ext_resource type="Script" path="res://scripts/Princess.gd" id="1_ipcgm"]
-[ext_resource type="Texture2D" uid="uid://b34o0spcbpixw" path="res://assets/sprites/Princess_1.png" id="2_x0r27"]
 [ext_resource type="Script" path="res://scripts/DraggingArea.gd" id="3_0dpkn"]
+[ext_resource type="Texture2D" uid="uid://crhodu3c3wiq2" path="res://assets/sprites/princess/pieces/bodies/1/head_1_result.png" id="4_a2jln"]
+[ext_resource type="Texture2D" uid="uid://dqpvsywqoqc4f" path="res://assets/sprites/princess/pieces/hairs/hair_2_result.png" id="5_hgrlp"]
+[ext_resource type="Texture2D" uid="uid://d4ibjwf7j0d7k" path="res://assets/sprites/princess/pieces/bodies/1/arm_left_1_result.png" id="6_45dmm"]
+[ext_resource type="Texture2D" uid="uid://6dh5l7q7pe4t" path="res://assets/sprites/princess/pieces/dresses/1/dress_arm_left_1_result.png" id="7_5c7j2"]
+[ext_resource type="Texture2D" uid="uid://bo84e0lg7qm45" path="res://assets/sprites/princess/pieces/dresses/1/dress_up_1_result.png" id="8_a6eri"]
+[ext_resource type="Texture2D" uid="uid://de2wfm2de0noj" path="res://assets/sprites/princess/pieces/bodies/1/arm_right_1_result.png" id="8_f6tbx"]
+[ext_resource type="Texture2D" uid="uid://dr0vjy0u3voya" path="res://assets/sprites/princess/pieces/dresses/1/dress_arm_right_1_result.png" id="9_yw75i"]
+[ext_resource type="Texture2D" uid="uid://bjjxqcmc8faut" path="res://assets/sprites/princess/pieces/bodies/1/leg_left_1_result.png" id="11_wvt1x"]
+[ext_resource type="Texture2D" uid="uid://bw1714bch4rwc" path="res://assets/sprites/princess/pieces/bodies/1/leg_right_1_result.png" id="12_qpmar"]
+[ext_resource type="Texture2D" uid="uid://dbsa4m3ynwoil" path="res://assets/sprites/princess/pieces/dresses/1/dress_down_1_result.png" id="13_1s3qj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1uasw"]
 radius = 43.5
@@ -17,32 +26,80 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("Skeleton/Middle/Torso/Head:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 0.5)]
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton/Middle/Torso/ArmRight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton/Middle/Torso/ArmLeft:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton/Middle/Pelvis:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton/Middle/Pelvis/LegLeft:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton/Middle/Pelvis/LegRight:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_bvhbu"]
 resource_name = "click"
 length = 0.1
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.45, 0.55), Vector2(0.5, 0.5)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ahs2"]
 _data = {
@@ -53,10 +110,6 @@ _data = {
 [node name="Princess" type="CharacterBody2D" groups=["Character"]]
 collision_layer = 2
 script = ExtResource("1_ipcgm")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_x0r27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 41.5)
@@ -75,3 +128,126 @@ shape = SubResource("CapsuleShape2D_wlp7o")
 libraries = {
 "": SubResource("AnimationLibrary_1ahs2")
 }
+
+[node name="Skeleton" type="Skeleton2D" parent="."]
+scale = Vector2(0.15, 0.15)
+
+[node name="Middle" type="Bone2D" parent="Skeleton"]
+position = Vector2(-25, -284)
+rest = Transform2D(1, 0, 0, 1, -25, -284)
+
+[node name="Torso" type="Bone2D" parent="Skeleton/Middle"]
+position = Vector2(-1.66666, -2.66663)
+rest = Transform2D(1, 0, 0, 1, 40, -520)
+
+[node name="Head" type="Bone2D" parent="Skeleton/Middle/Torso"]
+position = Vector2(43.6667, -579.333)
+rest = Transform2D(1, 0, 0, 1, 2, -62)
+
+[node name="Head" type="Sprite2D" parent="Skeleton/Middle/Torso/Head"]
+position = Vector2(-17, 866)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("4_a2jln")
+
+[node name="Hair" type="Sprite2D" parent="Skeleton/Middle/Torso/Head"]
+position = Vector2(-17, 866)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("5_hgrlp")
+
+[node name="DressHead" type="Sprite2D" parent="Skeleton/Middle/Torso/Head"]
+position = Vector2(-17, 866)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="ArmLeft" type="Bone2D" parent="Skeleton/Middle/Torso"]
+position = Vector2(-87.3333, -410.333)
+rest = Transform2D(1, 0, 0, 1, -129, 107)
+
+[node name="ArmLeft" type="Sprite2D" parent="Skeleton/Middle/Torso/ArmLeft"]
+position = Vector2(114, 697)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("6_45dmm")
+
+[node name="DressArmLeft" type="Sprite2D" parent="Skeleton/Middle/Torso/ArmLeft"]
+position = Vector2(114, 697)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("7_5c7j2")
+
+[node name="ArmRight" type="Bone2D" parent="Skeleton/Middle/Torso"]
+position = Vector2(194.667, -403.333)
+rest = Transform2D(1, 0, 0, 1, 153, 114)
+
+[node name="ArmRight" type="Sprite2D" parent="Skeleton/Middle/Torso/ArmRight"]
+position = Vector2(-168, 690)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("8_f6tbx")
+
+[node name="DressArmRight" type="Sprite2D" parent="Skeleton/Middle/Torso/ArmRight"]
+position = Vector2(-168, 690)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("9_yw75i")
+
+[node name="Up" type="Sprite2D" parent="Skeleton/Middle/Torso"]
+position = Vector2(26.6667, 286.667)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="DressUp" type="Sprite2D" parent="Skeleton/Middle/Torso"]
+position = Vector2(26.6667, 286.667)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("8_a6eri")
+
+[node name="Pelvis" type="Bone2D" parent="Skeleton/Middle"]
+position = Vector2(-1, 116)
+rest = Transform2D(1, 0, 0, 1, -1, 116)
+
+[node name="LegLeft" type="Bone2D" parent="Skeleton/Middle/Pelvis"]
+position = Vector2(-94, 99)
+rest = Transform2D(1, 0, 0, 1, -94, 99)
+
+[node name="LegLeft" type="Sprite2D" parent="Skeleton/Middle/Pelvis/LegLeft"]
+position = Vector2(120, 69)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("11_wvt1x")
+
+[node name="DressLegLeft" type="Sprite2D" parent="Skeleton/Middle/Pelvis/LegLeft"]
+position = Vector2(120, 69)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="LegRight" type="Bone2D" parent="Skeleton/Middle/Pelvis"]
+position = Vector2(96, 94)
+rest = Transform2D(1, 0, 0, 1, 96, 94)
+
+[node name="LegRight" type="Sprite2D" parent="Skeleton/Middle/Pelvis/LegRight"]
+position = Vector2(-70, 74)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("12_qpmar")
+
+[node name="DressLegRight" type="Sprite2D" parent="Skeleton/Middle/Pelvis/LegRight"]
+position = Vector2(-70, 74)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="Down" type="Sprite2D" parent="Skeleton/Middle/Pelvis"]
+position = Vector2(26, 168)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="DressDown" type="Sprite2D" parent="Skeleton/Middle/Pelvis"]
+position = Vector2(26, 168)
+scale = Vector2(6.66667, 6.66667)
+texture = ExtResource("13_1s3qj")
+
+[node name="LevelLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = 183.0
+offset_right = 22.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_font_sizes/font_size = 24
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1

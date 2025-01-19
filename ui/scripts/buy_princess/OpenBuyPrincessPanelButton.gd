@@ -1,13 +1,15 @@
 extends TextureButton
 
+@export var buy_princess_panel_name: String = "Shop"
 
 
-@onready var buy_princess_panel: BuyPrincessPanel = $"../BuyPrincessPanel"
+#@onready var buy_princess_panel: BuyPrincessPanel = $"../BuyPrincessPanel"
+@onready var panel: PanelManager = $'../Panel'
 
 
 
 func _pressed() -> void:
-	buy_princess_panel.show_panel()
+	panel.show_panel(buy_princess_panel_name)
 
 
 func appear() -> void:

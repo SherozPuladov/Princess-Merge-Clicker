@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ClickMultiplierData" load_steps=2 format=3 uid="uid://d226cr1n83y4f"]
+
+[ext_resource type="Script" path="res://data/upgrades/templates/click_multiplier.gd" id="1_65me3"]
+
+[resource]
+script = ExtResource("1_65me3")
+prices = Array[int]([0, 100, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000])
+multiplies = Array[float]([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0])

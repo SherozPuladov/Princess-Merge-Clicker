@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="PrincessDress" load_steps=2 format=3 uid="uid://b0choiv4xj8d4"]
+[gd_resource type="Resource" script_class="Dress" load_steps=6 format=3 uid="uid://b0choiv4xj8d4"]
 
-[ext_resource type="Script" path="res://data/template/princess_dress.gd" id="1_l3xrd"]
+[ext_resource type="Script" path="res://data/princesses/template/dress.gd" id="1_l3xrd"]
+[ext_resource type="Texture2D" uid="uid://6dh5l7q7pe4t" path="res://assets/sprites/princess/pieces/dresses/1/dress_arm_left_1_result.png" id="1_u785s"]
+[ext_resource type="Texture2D" uid="uid://dr0vjy0u3voya" path="res://assets/sprites/princess/pieces/dresses/1/dress_arm_right_1_result.png" id="2_awxba"]
+[ext_resource type="Texture2D" uid="uid://dbsa4m3ynwoil" path="res://assets/sprites/princess/pieces/dresses/1/dress_down_1_result.png" id="3_t58ys"]
+[ext_resource type="Texture2D" uid="uid://bo84e0lg7qm45" path="res://assets/sprites/princess/pieces/dresses/1/dress_up_1_result.png" id="5_m102a"]
 
 [resource]
 script = ExtResource("1_l3xrd")
-b = false
+arm_left = ExtResource("1_u785s")
+arm_right = ExtResource("2_awxba")
+up = ExtResource("5_m102a")
+down = ExtResource("3_t58ys")

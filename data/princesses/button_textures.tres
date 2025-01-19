@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PrincessButtonTextures" load_steps=12 format=3 uid="uid://b2o5ccu2exufd"]
+
+[ext_resource type="Texture2D" uid="uid://b34o0spcbpixw" path="res://assets/sprites/Princess_1.png" id="1_5dl0t"]
+[ext_resource type="Script" path="res://data/princesses/template/button_textures.gd" id="1_v6u2n"]
+[ext_resource type="Texture2D" uid="uid://c2g764vp2pd30" path="res://assets/sprites/Princess_2.png" id="3_wf24i"]
+[ext_resource type="Texture2D" uid="uid://bs5p334vyt5b5" path="res://assets/sprites/Princess_3.png" id="4_x7dgi"]
+[ext_resource type="Texture2D" uid="uid://bscuuipktcpfm" path="res://assets/sprites/Princess_4.png" id="5_ldebv"]
+[ext_resource type="Texture2D" uid="uid://fgj6il5kljph" path="res://assets/sprites/Princess_5.png" id="6_w38iw"]
+[ext_resource type="Texture2D" uid="uid://cmd1yalis3sw2" path="res://assets/sprites/Princess_6.png" id="7_vg7qu"]
+[ext_resource type="Texture2D" uid="uid://bb27sgg56kom1" path="res://assets/sprites/Princess_7.png" id="8_qweea"]
+[ext_resource type="Texture2D" uid="uid://ru0j6qvkigbs" path="res://assets/sprites/Princess_8.png" id="9_ytqu5"]
+[ext_resource type="Texture2D" uid="uid://b5lmblua8w78h" path="res://assets/sprites/Princess_9.png" id="10_1urt4"]
+[ext_resource type="Texture2D" uid="uid://c8q7m0dwsbyd6" path="res://assets/sprites/Princess_10.png" id="11_vvkqw"]
+
+[resource]
+script = ExtResource("1_v6u2n")
+default_button_texture = ExtResource("1_5dl0t")
+textures = Array[Texture2D]([ExtResource("1_5dl0t"), ExtResource("3_wf24i"), ExtResource("4_x7dgi"), ExtResource("5_ldebv"), ExtResource("6_w38iw"), ExtResource("7_vg7qu"), ExtResource("8_qweea"), ExtResource("9_ytqu5"), ExtResource("10_1urt4"), ExtResource("11_vvkqw")])

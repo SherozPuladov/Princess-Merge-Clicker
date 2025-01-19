@@ -1,12 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://cyy5e7g4cfsxm"]
+[gd_scene load_steps=66 format=3 uid="uid://cyy5e7g4cfsxm"]
 
 [ext_resource type="Script" path="res://scripts/managers/advertisement_manager.gd" id="1_3qny2"]
 [ext_resource type="Script" path="res://scripts/audio/background_audio.gd" id="1_obfha"]
-[ext_resource type="Texture2D" uid="uid://de13xhl07opcs" path="res://assets/sprites/DanceFloor.jpg" id="1_yqfxt"]
 [ext_resource type="Script" path="res://scripts/managers/debug_manager.gd" id="2_a3hqg"]
 [ext_resource type="Script" path="res://scripts/SpawnPoints.gd" id="4_rfc04"]
-[ext_resource type="Script" path="res://ui/scripts/BuyPrincessPanel.gd" id="5_84kjq"]
-[ext_resource type="Script" path="res://ui/scripts/CloseBuyPrincessPanelButton.gd" id="5_mr1k8"]
+[ext_resource type="Texture2D" uid="uid://dasyvy2pgyeep" path="res://assets/sprites/Background_result.jpg" id="5_2byg8"]
 [ext_resource type="PackedScene" uid="uid://dr44pg7mir5t7" path="res://scenes/objects/SpawnButton.tscn" id="7_vsy6d"]
 [ext_resource type="Script" path="res://scripts/AutoSpawn.gd" id="8_xr7lj"]
 [ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="9_6wilp"]
@@ -16,11 +14,14 @@
 [ext_resource type="Script" path="res://ui/scripts/AutoSpawnProgressBar.gd" id="10_vowpc"]
 [ext_resource type="FontFile" uid="uid://dg64xc28b1wgq" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="12_ho7uy"]
 [ext_resource type="Script" path="res://ui/scripts/player_name_label.gd" id="12_je5tj"]
+[ext_resource type="Script" path="res://ui/scripts/open_reward_advertisement_button.gd" id="13_62bok"]
 [ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="13_aiijj"]
 [ext_resource type="Script" path="res://ui/scripts/labels/platform_name_label.gd" id="13_m6457"]
 [ext_resource type="Script" path="res://ui/scripts/labels/princess_on_scene_label.gd" id="14_673ei"]
 [ext_resource type="Script" path="res://ui/scripts/player_photo.gd" id="20_642i7"]
 [ext_resource type="Script" path="res://ui/scripts/labels/max_princess_on_scene_label.gd" id="20_nfyv3"]
+[ext_resource type="Script" path="res://ui/scripts/panel.gd" id="21_h4jrl"]
+[ext_resource type="Script" path="res://ui/scripts/close_panel.gd" id="23_f1cvj"]
 
 [sub_resource type="Gradient" id="Gradient_2gw27"]
 colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
@@ -48,6 +49,78 @@ stroke_type = 1
 stroke_width = 5.0
 stroke_color = Color(0, 0, 0, 1)
 stroke_gradient = SubResource("Gradient_60i4s")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_w3y44"]
+offsets = PackedFloat32Array(0.77957, 1)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_a5awu"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_wp67e"]
+offsets = PackedFloat32Array(0.768817, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_q5jx3"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(180, 180)
+shape = SubResource("Resource_a5awu")
+fill_type = 1
+fill_color = Color(1, 0.614282, 0.842038, 1)
+fill_gradient = SubResource("Gradient_w3y44")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(1, 1, 1, 1)
+stroke_gradient = SubResource("Gradient_wp67e")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_iaobi"]
+offsets = PackedFloat32Array(0.526882, 1)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_itlv2"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_825gi"]
+offsets = PackedFloat32Array(0.532258, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_qrvio"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(180, 180)
+shape = SubResource("Resource_itlv2")
+fill_type = 1
+fill_color = Color(1, 0.614282, 0.842038, 1)
+fill_gradient = SubResource("Gradient_iaobi")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(1, 1, 1, 1)
+stroke_gradient = SubResource("Gradient_825gi")
 stroke_from = Vector2(0, 0)
 stroke_to = Vector2(1, 0)
 stroke_repeat = "pad"
@@ -130,6 +203,30 @@ corner_rounding = 30.0
 [sub_resource type="Gradient" id="Gradient_0g7si"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
 
+[sub_resource type="Texture2D" id="Texture2D_3ampx"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(810, 90)
+shape = SubResource("Resource_ekypq")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_4xd6j")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_0g7si")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
 [sub_resource type="Texture2D" id="Texture2D_12arf"]
 resource_local_to_scene = false
 resource_name = ""
@@ -178,22 +275,142 @@ offset = Vector2(0, 0)
 rotation = 0.0
 scale = Vector2(1, 1)
 
-[sub_resource type="Texture2D" id="Texture2D_3ampx"]
+[sub_resource type="Gradient" id="Gradient_3114x"]
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_7ljpy"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_14d64"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_f7fcv"]
 resource_local_to_scene = false
 resource_name = ""
 script = ExtResource("9_6wilp")
-size = Vector2i(810, 90)
-shape = SubResource("Resource_ekypq")
+size = Vector2i(1940, 1037)
+shape = SubResource("Resource_7ljpy")
 fill_type = 1
 fill_color = Color(1, 1, 1, 1)
-fill_gradient = SubResource("Gradient_4xd6j")
+fill_gradient = SubResource("Gradient_3114x")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 1)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_14d64")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxbjt"]
+font_size = 72
+shadow_color = Color(1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Gradient" id="Gradient_ndosw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Resource" id="Resource_lja8v"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_trdgb"]
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_ovhw5"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(1902, 128)
+shape = SubResource("Resource_lja8v")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_ndosw")
 fill_from = Vector2(0, 0)
 fill_to = Vector2(1, 0)
 fill_repeat = "pad"
 stroke_type = 1
 stroke_width = 5.0
 stroke_color = Color(0, 0, 0, 1)
-stroke_gradient = SubResource("Gradient_0g7si")
+stroke_gradient = SubResource("Gradient_trdgb")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_5ckxx"]
+offsets = PackedFloat32Array(0, 0.252688)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Resource" id="Resource_xpy8p"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_2dfnj"]
+offsets = PackedFloat32Array(0, 0.258065)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_1u8wd"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(1902, 128)
+shape = SubResource("Resource_xpy8p")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_5ckxx")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_2dfnj")
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_xtxka"]
+offsets = PackedFloat32Array(0, 0.516129)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.614282, 0.842038, 1)
+
+[sub_resource type="Resource" id="Resource_1swy8"]
+script = ExtResource("10_uku58")
+corner_rounding = 30.0
+
+[sub_resource type="Gradient" id="Gradient_4usn7"]
+offsets = PackedFloat32Array(0, 0.505376)
+colors = PackedColorArray(1, 0.614282, 0.842038, 1, 1, 1, 1, 1)
+
+[sub_resource type="Texture2D" id="Texture2D_3hxeq"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("9_6wilp")
+size = Vector2i(1902, 128)
+shape = SubResource("Resource_1swy8")
+fill_type = 1
+fill_color = Color(1, 1, 1, 1)
+fill_gradient = SubResource("Gradient_xtxka")
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 1
+stroke_width = 5.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_gradient = SubResource("Gradient_4usn7")
 stroke_from = Vector2(0, 0)
 stroke_to = Vector2(1, 0)
 stroke_repeat = "pad"
@@ -210,7 +427,7 @@ height = 1560.0
 
 [node name="Managers" type="Node" parent="."]
 
-[node name="Advertisement" type="Node" parent="Managers"]
+[node name="Advertisement" type="Node" parent="Managers" groups=["Advertisement"]]
 script = ExtResource("1_3qny2")
 
 [node name="InterstitialTimer" type="Timer" parent="Managers/Advertisement"]
@@ -222,7 +439,6 @@ script = ExtResource("2_a3hqg")
 [node name="CanvasLayer" type="CanvasLayer" parent="Managers/Debug"]
 
 [node name="DebugLabel" type="Label" parent="Managers/Debug/CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -234,8 +450,10 @@ offset_right = 300.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
 theme_override_font_sizes/font_size = 24
-text = "Version: 0.15"
+text = "Version: 0.17"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
@@ -252,7 +470,8 @@ offset_right = -10.0
 offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
 theme_override_font_sizes/font_size = 24
 text = "Mock"
 horizontal_alignment = 2
@@ -276,7 +495,7 @@ metadata/_edit_lock_ = true
 z_index = -4096
 position = Vector2(0.000181847, -3.28767e-05)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("1_yqfxt")
+texture = ExtResource("5_2byg8")
 region_rect = Rect2(165.221, 124.654, 958.415, 545.641)
 metadata/_edit_lock_ = true
 
@@ -301,25 +520,88 @@ script = ExtResource("8_xr7lj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CloseBuyPrincessPanelButton" type="TextureButton" parent="CanvasLayer"]
-visible = false
+[node name="OpenSettingsPanelButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture_normal = SubResource("Texture2D_qohu7")
+texture_pressed = SubResource("Texture2D_q5jx3")
+texture_hover = SubResource("Texture2D_qrvio")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/OpenSettingsPanelButton"]
+auto_translate_mode = 2
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_mr1k8")
+localize_numeral_system = false
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("12_ho7uy")
+theme_override_font_sizes/font_size = 92
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_aiijj")
+icon_size = 92
+icon_name = "gear"
+
+[node name="OpenBuyUpgradePanelButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture_normal = SubResource("Texture2D_qohu7")
+texture_pressed = SubResource("Texture2D_q5jx3")
+texture_hover = SubResource("Texture2D_qrvio")
+ignore_texture_size = true
+stretch_mode = 1
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/OpenBuyUpgradePanelButton"]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("12_ho7uy")
+theme_override_font_sizes/font_size = 92
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_aiijj")
+icon_size = 92
+icon_name = "arrow-up"
 
 [node name="OpenBuyPrincessPanelButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -190.0
-offset_right = 190.0
-offset_bottom = -10.0
+offset_left = 420.0
+offset_top = -200.0
+offset_right = 600.0
+offset_bottom = -20.0
 grow_vertical = 0
 texture_normal = SubResource("Texture2D_qohu7")
+texture_pressed = SubResource("Texture2D_q5jx3")
+texture_hover = SubResource("Texture2D_qrvio")
 ignore_texture_size = true
 stretch_mode = 1
 script = ExtResource("9_t1uxm")
@@ -344,93 +626,49 @@ script = ExtResource("13_aiijj")
 icon_size = 92
 icon_name = "shop"
 
-[node name="BuyPrincessPanel" type="Panel" parent="CanvasLayer"]
-anchors_preset = 11
-anchor_left = 1.0
+[node name="OpenRewardAdvertisementButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 620.0
+offset_top = -200.0
+offset_right = 800.0
+offset_bottom = -20.0
+grow_vertical = 0
+texture_normal = SubResource("Texture2D_qohu7")
+texture_pressed = SubResource("Texture2D_q5jx3")
+texture_hover = SubResource("Texture2D_qrvio")
+ignore_texture_size = true
+stretch_mode = 1
+script = ExtResource("13_62bok")
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/OpenRewardAdvertisementButton"]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 600.0
-grow_horizontal = 0
-grow_vertical = 2
-script = ExtResource("5_84kjq")
-
-[node name="Label" type="Label" parent="CanvasLayer/BuyPrincessPanel"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 72
-text = "Buy Princess"
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("12_ho7uy")
+theme_override_font_sizes/font_size = 92
+text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/BuyPrincessPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -440.0
-offset_right = 250.0
-offset_bottom = 440.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="SpawnButton" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-
-[node name="SpawnButton2" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 2
-
-[node name="SpawnButton3" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 3
-
-[node name="SpawnButton4" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 4
-
-[node name="SpawnButton5" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 5
-
-[node name="SpawnButton6" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 6
-
-[node name="SpawnButton7" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 7
-
-[node name="SpawnButton8" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 8
-
-[node name="SpawnButton9" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 9
-
-[node name="SpawnButton10" parent="CanvasLayer/BuyPrincessPanel/ScrollContainer/VBoxContainer" instance=ExtResource("7_vsy6d")]
-layout_mode = 2
-princess_level = 10
+script = ExtResource("13_aiijj")
+icon_size = 92
+icon_name = "gem"
 
 [node name="AutoSpawnProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 10.0
+offset_left = 20.0
 offset_top = -250.0
-offset_right = 100.0
+offset_right = 110.0
 offset_bottom = 250.0
 grow_vertical = 2
 step = 0.01
@@ -441,11 +679,58 @@ texture_over = SubResource("Texture2D_nvdok")
 texture_progress = SubResource("Texture2D_flilg")
 script = ExtResource("10_vowpc")
 
+[node name="Crystals" type="TextureRect" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 830.0
+offset_bottom = 110.0
+texture = SubResource("Texture2D_3ampx")
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/Crystals"]
+auto_translate_mode = 2
+layout_mode = 0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 92.0
+localize_numeral_system = false
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_fonts/font = ExtResource("12_ho7uy")
+theme_override_font_sizes/font_size = 48
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_aiijj")
+icon_size = 48
+icon_name = "gem"
+
+[node name="CrystalsCountLabel" type="Label" parent="CanvasLayer/Crystals"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = -45.0
+offset_right = 790.0
+offset_bottom = 45.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
+theme_override_font_sizes/font_size = 48
+text = "92384529384752903475927340972193847"
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+script = ExtResource("9_y6frf")
+
 [node name="PrincessOnScene" type="TextureRect" parent="CanvasLayer"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 100.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 20.0
+offset_right = 120.0
+offset_bottom = 110.0
+grow_horizontal = 2
 texture = SubResource("Texture2D_12arf")
 
 [node name="CurrentPrincessOnSceneLabel" type="Label" parent="CanvasLayer/PrincessOnScene"]
@@ -506,10 +791,10 @@ vertical_alignment = 1
 script = ExtResource("20_nfyv3")
 
 [node name="Profile" type="TextureRect" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 110.0
-offset_right = 518.0
-offset_bottom = 200.0
+offset_left = 20.0
+offset_top = 130.0
+offset_right = 530.0
+offset_bottom = 220.0
 texture = SubResource("Texture2D_nvb3p")
 
 [node name="PlayerNameLabel" type="Label" parent="CanvasLayer/Profile"]
@@ -531,53 +816,150 @@ script = ExtResource("12_je5tj")
 [node name="PlayerPhoto" type="TextureRect" parent="CanvasLayer/Profile"]
 layout_mode = 0
 offset_left = 110.0
-offset_top = 110.0
+offset_top = 111.0
 offset_right = 150.0
-offset_bottom = 150.0
+offset_bottom = 151.0
 script = ExtResource("20_642i7")
 
-[node name="Crystals" type="TextureRect" parent="CanvasLayer"]
-offset_left = 260.0
-offset_top = 10.0
-offset_right = 1070.0
-offset_bottom = 100.0
-texture = SubResource("Texture2D_3ampx")
+[node name="Panel" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchor_left = 0.01
+anchor_top = 0.02
+anchor_right = 0.99
+anchor_bottom = 0.98
+script = ExtResource("21_h4jrl")
 
-[node name="FontAwesome" type="Label" parent="CanvasLayer/Crystals"]
-auto_translate_mode = 2
-layout_mode = 0
-offset_top = 2.0
-offset_right = 100.0
-offset_bottom = 92.0
-localize_numeral_system = false
-theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
-theme_override_fonts/font = ExtResource("12_ho7uy")
-theme_override_font_sizes/font_size = 48
-text = ""
+[node name="Background" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.400024
+offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_f7fcv")
+
+[node name="Name" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "PANEL_NAME"
+label_settings = SubResource("LabelSettings_nxbjt")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("13_aiijj")
-icon_size = 48
-icon_name = "gem"
 
-[node name="CrystalsCountLabel" type="Label" parent="CanvasLayer/Crystals"]
+[node name="Settings" type="Control" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 90.0
-offset_top = -45.0
-offset_right = 790.0
-offset_bottom = 45.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrades" type="Control" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shop" type="Control" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Panel/Shop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.13
+anchor_right = 0.974
+anchor_bottom = 0.828
+follow_focus = true
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/Shop/ScrollContainer"]
+layout_mode = 2
+
+[node name="SpawnButton" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+
+[node name="SpawnButton2" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 1
+
+[node name="SpawnButton3" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 2
+
+[node name="SpawnButton4" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 3
+
+[node name="SpawnButton5" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 4
+
+[node name="SpawnButton6" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 5
+
+[node name="SpawnButton7" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 6
+
+[node name="SpawnButton8" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 7
+
+[node name="SpawnButton9" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 8
+
+[node name="SpawnButton10" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 9
+
+[node name="SpawnButton11" parent="CanvasLayer/Panel/Shop/ScrollContainer/HBoxContainer" instance=ExtResource("7_vsy6d")]
+layout_mode = 2
+princess_level = 10
+
+[node name="Close" type="TextureButton" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.9
+anchor_right = 0.99
+anchor_bottom = 0.985
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("Texture2D_ovhw5")
+texture_pressed = SubResource("Texture2D_1u8wd")
+texture_hover = SubResource("Texture2D_3hxeq")
+script = ExtResource("23_f1cvj")
+
+[node name="Text" type="Label" parent="CanvasLayer/Panel/Close"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.614282, 0.842038, 1)
-theme_override_font_sizes/font_size = 48
-text = "92384529384752903475927340972193847"
+theme_override_font_sizes/font_size = 56
+text = "CLOSE"
+horizontal_alignment = 1
 vertical_alignment = 1
-clip_text = true
-text_overrun_behavior = 1
-script = ExtResource("9_y6frf")
 
 [node name="Dance Floor" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

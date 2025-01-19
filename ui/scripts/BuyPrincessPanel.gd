@@ -1,5 +1,5 @@
 class_name BuyPrincessPanel
-extends Panel
+extends Control
 
 
 
@@ -17,7 +17,7 @@ var is_shown: bool = false
 
 func _ready() -> void:
 	GameManager.connect("switch_buy_princess_panel_visibility", switch_visibility)
-	show_position.x = global_position.x - size.x
+	show_position.x = global_position.x - size.x - 60
 	show_position.y = global_position.y
 	hide_position = global_position
 

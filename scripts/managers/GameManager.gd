@@ -11,7 +11,7 @@ signal switch_buy_princess_panel_visibility()
 
 func _ready() -> void:
 	if princesses.get_child_count() == 0:
-		PrincessManager._spawn_princess(1)
+		PrincessManager._spawn_princess(0)
 	#if Bridge.platform.id:
 		#Bridge.platform.send_message(Bridge.PlatformMessage.GAME_READY)
 		#Bridge.platform.send_message(Bridge.PlatformMessage.GAMEPLAY_STARTED)

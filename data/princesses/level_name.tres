@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PrincessLevelNames" load_steps=2 format=3 uid="uid://dnhau2i2wunoj"]
+
+[ext_resource type="Script" path="res://data/princesses/template/level_names.gd" id="1_7yh5h"]
+
+[resource]
+script = ExtResource("1_7yh5h")
+default_level_name = "DEFAULT_PRINCESS_NAME"
+princess_level_names = Array[String](["PRINCESS_NAME_0", "PRINCESS_NAME_1", "PRINCESS_NAME_2", "PRINCESS_NAME_3", "PRINCESS_NAME_4", "PRINCESS_NAME_5", "PRINCESS_NAME_6", "PRINCESS_NAME_7", "PRINCESS_NAME_8", "PRINCESS_NAME_9"])
