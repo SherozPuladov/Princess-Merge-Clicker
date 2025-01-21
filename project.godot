@@ -32,6 +32,7 @@ DragManager="*res://scripts/managers/DragManager.gd"
 CrystalManager="*res://scripts/managers/CrystalManager.gd"
 GameManager="*res://scripts/managers/GameManager.gd"
 Bridge="*res://addons/playgama_bridge/bridge.gd"
+SaveManager="*res://scripts/managers/save_manager.gd"
 
 [display]
 

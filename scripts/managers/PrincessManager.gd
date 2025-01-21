@@ -33,11 +33,13 @@ var all_spawnpoint_positions: Array[Vector2] = []
 
 var _next_random_spawnpoint: Vector2:
 	get:
-		# Возвращаем случайную позицию из массива
-		if all_spawnpoint_positions.size() > 0:
-			return all_spawnpoint_positions[randi_range(0, all_spawnpoint_positions.size() - 1)]
-		else:
-			return Vector2()  # Если массив пустой, возвращаем нулевой вектор
+		# Возвращается случайная позиция
+		return Vector2(randi_range(-400, 400), randi_range(-200, 200))
+		## Возвращаем случайную позицию из массива
+		#if all_spawnpoint_positions.size() > 0:
+			#return all_spawnpoint_positions[randi_range(0, all_spawnpoint_positions.size() - 1)]
+		#else:
+			#return Vector2()  # Если массив пустой, возвращаем нулевой вектор
 
 
 var _next_princess_z_index = MAX_PRINCESS_Z_INDEX:
@@ -70,7 +72,11 @@ func buy_princess(princess_level: int) -> void:
 		emit_signal("not_enough_crystals_to_buy_princess", level_costs.princess_level_costs[princess_level] - CrystalManager.crystals)
 		
 
+func spawn_princesses(a: Array) -> void:
+	for i in a:
+		_spawn_princess(int(i))
 
+# Создание принцессы
 func _spawn_princess(princess_level: int) -> void:
 	if princesses == null:
 		push_error("Узел Princesses не установлен")
@@ -90,7 +96,7 @@ func _spawn_princess(princess_level: int) -> void:
 	
 	emit_signal("princess_spawned", princess_instance)
 
-
+# Инициализация принцессы
 func _initialize_princess(p: Princess, p_level: int):
 	# Проверяем, что инстанс успешно создан
 	if p != null:
@@ -106,6 +112,17 @@ func _initialize_princess(p: Princess, p_level: int):
 		princess.position = _next_random_spawnpoint
 	else:
 		print("Не удалось создать инстанс принцессы")
+
+
+func get_princesses_levels_as_array() -> Array:
+	var ps = princesses.get_children()
+	var a = []
+	a.resize(ps.size())
+	var i = 0
+	for p in ps:
+		a[i] = p.level
+		i += 1
+	return a
 
 
 func _retranslate_princess_level_increased_signal(princess: Princess):

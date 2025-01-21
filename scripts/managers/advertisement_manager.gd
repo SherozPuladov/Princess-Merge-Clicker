@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	interstitial_timer.start()
 	
-	Bridge.advertisement.connect("reward_state_changed", _on_reward_state_changed)
+	Bridge.advertisement.connect("rewarded_state_changed", _on_reward_state_changed)
 	
 
 
