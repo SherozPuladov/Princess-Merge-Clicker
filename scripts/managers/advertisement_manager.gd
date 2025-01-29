@@ -31,24 +31,16 @@ func _ready() -> void:
 
 func _on_interstitial_timer_timeout() -> void:
 	Bridge.advertisement.show_interstitial()
-	if debug_manager:
-		debug_manager.print_debug_text_on_screen("interstitial timer is over")
 
 
 func _on_interstitial_state_changed(state) -> void:
 	match state:
 		"opened":
 			emit_signal("advertisement_opened")
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("interstitial opened")
 		"closed":
 			emit_signal("advertisement_closed")
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("interstitial closed")
 		"failed":
 			emit_signal("advertisement_failed")
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("interstitial failed")
 	
 	interstitial_timer.start()
 
@@ -62,17 +54,9 @@ func _on_reward_state_changed(state):
 	match state:
 		"opened":
 			emit_signal('reward_advertisement_opened')
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("reward advertisement opened")
 		"closed":
 			emit_signal('reward_advertisement_closed')
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("reward advertisement closed")
 		"failed":
 			emit_signal('reward_advertisement_failed')
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("reward advertisement failed")
 		"rewarded":
 			emit_signal('reward_advertisement_rewarded')
-			if debug_manager:
-				debug_manager.print_debug_text_on_screen("reward advertisement rewarded")
